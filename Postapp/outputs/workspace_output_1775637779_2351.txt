@@ -1,0 +1,21 @@
+        <button class="panic-btn" onclick="triggerPanic()">🚨 PANIC BUTTON</button>
+      </div>
+      
+      <div class="theme-section">
+        <h4>THEME</h4>
+        <div class="theme-pills">
+          <div class="theme-pill active" data-theme="void" onclick="setTheme('void')"></div>
+          <div class="theme-pill" data-theme="neon" onclick="setTheme('neon')"></div>
+          <div class="theme-pill" data-theme="ghost" onclick="setTheme('ghost')"></div>
+          <div class="theme-pill" data-theme="paper" onclick="setTheme('paper')"></div>
+        </div>
+        <div class="theme-name" id="themeName">VOID</div>
+      </div>
+      
+      <div class="status-section">
+        <h4>AUTO-DESTRUCT</h4>
+        <select class="auto-destruct-select" id="autoDestruct" onchange="setAutoDestruct(this.value)">
+          <option value="0">OFF</option>
+          <option value="10">10 SECONDS</option>
+          <option value="30">30 SECONDS</option>
+          <option value="60">1 MINUTE</option>

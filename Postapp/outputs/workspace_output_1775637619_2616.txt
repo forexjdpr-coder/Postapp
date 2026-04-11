@@ -1,0 +1,64 @@
+    .input-area { padding: 16px; background: var(--card); border-top: 1px solid var(--border); }
+    .input-container { display: flex; gap: 8px; align-items: flex-end; }
+    .input-actions { display: flex; gap: 4px; }
+    
+    .input-action-btn {
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    
+    .input-action-btn:hover { background: rgba(var(--accent-rgb), 0.1); border-color: var(--accent); }
+    .input-action-btn.recording { background: #ff2244; border-color: #ff2244; animation: pulse 1s infinite; }
+    
+    .message-input {
+      flex: 1;
+      min-height: 40px;
+      max-height: 120px;
+      padding: 10px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      resize: none;
+    }
+    
+    .message-input:focus { outline: none; border-color: var(--accent); }
+    .message-input::placeholder { opacity: 0.5; }
+    
+    .send-btn {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border: none;
+      color: #000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: all 0.2s ease;
+    }
+    
+    .send-btn:hover { transform: scale(1.05); }
+    .send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    
+    .info-panel {
+      width: 260px;
+      min-width: 260px;
+      background: var(--card);
+      border-left: 1px solid var(--border);
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;

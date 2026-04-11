@@ -1,0 +1,21 @@
+    function connectFromBoard(peerId) { document.getElementById('peerIdInput').value = peerId; switchConnectTab('direct'); connectToPeer(); }
+    
+    function setTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+      localStorage.setItem('postal_theme', theme);
+      const themeNames = { 'void': 'VOID', 'neon': 'NEON', 'ghost': 'GHOST', 'paper': 'PAPER' };
+      document.getElementById('themeName').textContent = themeNames[theme];
+      document.getElementById('mobileThemeName').textContent = themeNames[theme];
+      document.querySelectorAll('.theme-pill').forEach(p => p.classList.toggle('active', p.dataset.theme === theme));
+    }
+    
+    function toggleVanish() {
+      vanishMode = !vanishMode;
+      localStorage.setItem('postal_vanish', vanishMode);
+      document.getElementById('vanishToggle').classList.toggle('active', vanishMode);
+      document.getElementById('settingsVanishToggle').classList.toggle('active', vanishMode);
+      showToast(vanishMode ? 'Vanish mode ON' : 'Vanish mode OFF');
+    }
+    
+    function setAutoDestruct(value) { autoDestructTimer = parseInt(value); if (value !== '0') showToast('Auto-destruct: ' + value + 's'); }
+    function toggleSound() { soundEnabled = !soundEnabled; localStorage.setItem('postal_sound', soundEnabled); document.getElementById('soundToggle').classList.toggle('active', soundEnabled); }

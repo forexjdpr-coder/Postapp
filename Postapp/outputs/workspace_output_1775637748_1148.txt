@@ -1,0 +1,28 @@
+278:    .theme-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+280:    .theme-pill {
+289:    .theme-pill:hover, .theme-pill.active { border-color: var(--text); transform: scale(1.1); }
+290:    .theme-pill[data-theme="wine"] { background: linear-gradient(135deg, #8B2635, #A63D4C); }
+291:    .theme-pill[data-theme="midnight"] { background: linear-gradient(135deg, #2B5278, #4FAE4E); }
+292:    .theme-pill[data-theme="forest"] { background: linear-gradient(135deg, #2D4A2B, #5CA456); }
+293:    .theme-pill[data-theme="light"] { background: #ffffff; border: 2px solid #8B2635; }
+456:    .mobile-theme-bar .theme-pill { width: 24px; height: 24px; }
+1230:<body data-theme="void">
+1295:        <div class="theme-pills">
+1296:          <div class="theme-pill active" data-theme="void" onclick="setTheme('void')"></div>
+1297:          <div class="theme-pill" data-theme="neon" onclick="setTheme('neon')"></div>
+1298:          <div class="theme-pill" data-theme="ghost" onclick="setTheme('ghost')"></div>
+1299:          <div class="theme-pill" data-theme="paper" onclick="setTheme('paper')"></div>
+1346:        <div class="theme-pill active" data-theme="void" onclick="setTheme('void')"></div>
+1347:        <div class="theme-pill" data-theme="neon" onclick="setTheme('neon')"></div>
+1348:        <div class="theme-pill" data-theme="ghost" onclick="setTheme('ghost')"></div>
+1349:        <div class="theme-pill" data-theme="paper" onclick="setTheme('paper')"></div>
+1544:          <div class="theme-pills">
+1545:            <div class="theme-pill active" data-theme="void" onclick="setTheme('void')"></div>
+1546:            <div class="theme-pill" data-theme="neon" onclick="setTheme('neon')"></div>
+1547:            <div class="theme-pill" data-theme="ghost" onclick="setTheme('ghost')"></div>
+1548:            <div class="theme-pill" data-theme="paper" onclick="setTheme('paper')"></div>
+1673:      const savedTheme = localStorage.getItem('postal_theme') || 'void';
+1674:      setTheme(savedTheme);
+1992:    function setTheme(theme) {
+1995:      const themeNames = { 'void': 'VOID', 'neon': 'NEON', 'ghost': 'GHOST', 'paper': 'PAPER' };
+1998:      document.querySelectorAll('.theme-pill').forEach(p => p.classList.toggle('active', p.dataset.theme === theme));

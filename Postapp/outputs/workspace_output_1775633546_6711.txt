@@ -1,0 +1,25 @@
+total 168
+drwxr-xr-x 3 root root  4096 Apr  8 07:26 .
+drwxr-xr-x 7 user user  4096 Apr  8 07:29 ..
+-rw-r--r-- 1 root root 24515 Apr  8 07:26 admin.html
+drwxr-xr-x 2 root root  4096 Apr  8 07:32 api
+-rw-r--r-- 1 root root 87035 Apr  8 07:21 index.html
+-rw-r--r-- 1 root root  1401 Apr  8 06:06 manifest.json
+-rw-r--r-- 1 root root   313 Apr  8 06:05 package.json
+-rw-r--r-- 1 root root 15919 Apr  8 07:23 pay.html
+-rw-r--r-- 1 root root  8085 Apr  8 07:24 success.html
+-rw-r--r-- 1 root root  4519 Apr  8 06:07 sw.js
+-rw-r--r-- 1 root root   511 Apr  8 06:05 vercel.json
+total 56
+drwxr-xr-x 2 root root 4096 Apr  8 07:32 .
+drwxr-xr-x 3 root root 4096 Apr  8 07:26 ..
+-rw-r--r-- 1 root root 6722 Apr  8 07:32 admin-stats.js
+-rw-r--r-- 1 root root 3137 Apr  8 07:31 create-note.js
+-rw-r--r-- 1 root root 2392 Apr  8 07:27 create-order.js
+-rw-r--r-- 1 root root 3183 Apr  8 07:29 create-referral.js
+-rw-r--r-- 1 root root 3856 Apr  8 07:31 read-note.js
+-rw-r--r-- 1 root root 4470 Apr  8 07:28 send-otp.js
+-rw-r--r-- 1 root root 4074 Apr  8 07:30 use-referral.js
+-rw-r--r-- 1 root root 3247 Apr  8 07:27 verify-license.js
+-rw-r--r-- 1 root root 2631 Apr  8 07:28 verify-otp.js
+-rw-r--r-- 1 root root 3274 Apr  8 07:27 verify-payment.js

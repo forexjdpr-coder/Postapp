@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6C63FF">
+  <title>Postal Premium — Private Secure Chat Space</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📮</text></svg>">
+  <style>
+    :root {
+      --bg: #000000;
+      --accent: #6C63FF;
+      --text: #e8e6ff;
+      --border: #1a1830;
+      --card: #050510;
+      --accent-rgb: 108, 99, 255;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Courier New', monospace;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: var(--accent);
+      letter-spacing: 4px;
+      margin-bottom: 8px;
+    }
+    
+    .tagline {
+      font-size: 12px;
+      opacity: 0.6;
+      letter-spacing: 2px;
+    }
+    
+    .premium-title {
+      font-size: 18px;
+      letter-spacing: 3px;
+      color: var(--accent);
+      margin-top: 20px;
+    }
+    
+    .plan-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    @media (max-width: 500px) {
+      .plan-cards { grid-template-columns: 1fr; }
+    }
+    
+    .plan-card {
+      padding: 24px;
+      background: var(--card);
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      text-align: center;
+    }
+    
+    .plan-card:hover {
+      border-color: var(--accent);
+    }
+    
+    .plan-card.selected {
+      border-color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.1);
+    }
+    
+    .plan-card.best-value::before {
+      content: 'BEST VALUE';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #000;
+      font-size: 9px;
+      padding: 4px 12px;

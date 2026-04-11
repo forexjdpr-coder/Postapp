@@ -1,0 +1,21 @@
+          <button class="header-btn" onclick="showOverlay('connect')" title="Connect">🔗</button>
+          <button class="header-btn" onclick="showOverlay('settings')" title="Settings">⚙️</button>
+        </div>
+      </header>
+      
+      <div class="mobile-theme-bar">
+        <div class="theme-pill active" data-theme="void" onclick="setTheme('void')"></div>
+        <div class="theme-pill" data-theme="neon" onclick="setTheme('neon')"></div>
+        <div class="theme-pill" data-theme="ghost" onclick="setTheme('ghost')"></div>
+        <div class="theme-pill" data-theme="paper" onclick="setTheme('paper')"></div>
+        <span class="theme-name" id="mobileThemeName">VOID</span>
+      </div>
+      
+      <div class="status-bar">
+        <div class="status-item" id="encryptionStatus">🔓 UNENCRYPTED</div>
+        <div class="status-item" id="premiumStatus">FREE TIER</div>
+        <div class="status-item">🛡️ SCREEN PROTECTION ON</div>
+      </div>
+      
+      <div class="chat-container" id="chatContainer">
+        <div class="message system">
