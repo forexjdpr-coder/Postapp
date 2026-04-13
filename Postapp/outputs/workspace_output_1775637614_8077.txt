@@ -1,6 +1,0 @@
-617:    .input-area { padding: 16px; background: var(--card); border-top: 1px solid var(--border); }
-654:    .send-btn {
-668:    .send-btn:hover { transform: scale(1.05); }
-669:    .send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-1330:      <div class="input-area">
-1338:          <button class="send-btn" id="sendBtn" onclick="sendMessage()" disabled>➤</button>

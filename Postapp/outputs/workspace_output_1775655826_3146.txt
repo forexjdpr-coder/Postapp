@@ -1,6 +1,0 @@
-178:    .menu-btn {
-193:    .menu-btn:hover {
-1737:          <button class="menu-btn" onclick="toggleMenu()" title="Menu">☰</button>
-1741:          <button class="menu-btn" onclick="showModal('settings')" title="Settings">⚙️</button>
-2175:    function toggleMenu() {
-2176:      showToast('Menu coming soon!');
