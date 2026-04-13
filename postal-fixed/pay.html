@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8B2635">
+  <title>Postal Premium — Private Secure Chat Space</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f0f2f5;
+      --bg-tertiary: #e4e6eb;
+      --accent: #8B2635;
+      --accent-light: #A63D4C;
+      --accent-dark: #6B1F2A;
+      --accent-rgb: 139, 38, 53;
+      --text-primary: #050505;
+      --text-secondary: #65676b;
+      --text-tertiary: #8a8d91;
+      --border: #e4e6eb;
+      --card: #ffffff;
+      --success: #31a24c;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 24px 16px;
+      width: 100%;
+    }
+    
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 32px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    
+    .logo-text {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+    
+    .logo-text span {
+      color: var(--text-primary);
+    }
+    
+    .tagline {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    
+    .premium-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    
+    @media (max-width: 400px) {
+      .features { grid-template-columns: 1fr; }
+    }
+    
+    .feature-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+    
+    .feature-item:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+    
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(139, 38, 53, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    
+    .feature-text {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    
+    /* Plan Cards */
+    .plans-section {
+      margin-bottom: 24px;
+    }
+    
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    
+    .plan-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    
+    @media (max-width: 480px) {
+      .plan-cards { grid-template-columns: 1fr; }
+    }
+    
+    .plan-card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    
+    .plan-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+    
+    .plan-card.selected {
+      border-color: var(--accent);
+      background: rgba(139, 38, 53, 0.05);
+    }
+    
+    .plan-card.best-value {
+      border-color: var(--success);
+    }
+    
+    .plan-card.best-value::before {
+      content: 'BEST VALUE';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--success);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
+    }
+    
+    .plan-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    
+    .plan-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .plan-price {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    
+    .plan-price span {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+    
+    .plan-description {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    
+    /* Payment Form */
+    .payment-section {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+    
+    .form-group {
+      margin-bottom: 16px;
+    }
+    
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--bg-secondary);
+      border: 2px solid transparent;
+      border-radius: 12px;
+      font-size: 15px;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: var(--bg-primary);
+    }
+    
+    .form-input::placeholder {
+      color: var(--text-tertiary);
+    }
+    
+    /* License Input */
+    .license-section {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    
+    .license-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    
+    .license-input-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    
+    .license-input-group .form-input {
+      flex: 1;
+    }
+    
+    /* Buttons */
+    .btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .btn-secondary {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--bg-tertiary);
+    }
+    
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    /* Security Note */
+    .security-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px;
+      background: rgba(49, 162, 76, 0.1);
+      border-radius: 12px;
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--success);
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      padding: 12px 24px;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1100;
+    }
+    
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon">📬</div>
+        <div class="logo-text">Post<span>al</span></div>
+      </div>
+      <p class="tagline">Private Secure Chat Space</p>
+      <div class="premium-badge">✨ Upgrade to Premium</div>
+    </header>
+    
+    <div class="features">
+      <div class="feature-item">
+        <div class="feature-icon">🔐</div>
+        <span class="feature-text">End-to-End Encryption</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📹</div>
+        <span class="feature-text">Video & Voice Calls</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🎤</div>
+        <span class="feature-text">Voice Messages</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📎</div>
+        <span class="feature-text">File Sharing</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">👥</div>
+        <span class="feature-text">Group Chats</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔥</div>
+        <span class="feature-text">Burn Notes</span>
+      </div>
+    </div>
+    
+    <div class="plans-section">
+      <h2 class="section-title">Choose Your Plan</h2>
+      <div class="plan-cards">
+        <div class="plan-card" onclick="selectPlan('monthly')">
+          <div class="plan-icon">📅</div>
+          <div class="plan-name">Monthly</div>
+          <div class="plan-price">₹99<span>/mo</span></div>
+          <div class="plan-description">Billed monthly</div>
+        </div>
+        <div class="plan-card best-value selected" onclick="selectPlan('lifetime')">
+          <div class="plan-icon">💎</div>
+          <div class="plan-name">Lifetime</div>
+          <div class="plan-price">₹499<span>one-time</span></div>
+          <div class="plan-description">Pay once, use forever</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="payment-section">
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" id="emailInput" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-input" id="phoneInput" placeholder="+91 9876543210">
+      </div>
+      <button class="btn btn-primary" id="payBtn" onclick="initiatePayment()">
+        <span>💳</span> Pay ₹<span id="amountDisplay">499</span>
+      </button>
+    </div>
+    
+    <div class="license-section">
+      <h3 class="license-title">Already have a license key?</h3>
+      <div class="license-input-group">
+        <input type="text" class="form-input" id="licenseInput" placeholder="Enter license key">
+        <button class="btn btn-secondary" style="width:auto;padding:14px 24px;" onclick="activateLicense()">Activate</button>
+      </div>
+    </div>
+    
+    <div class="security-note">
+      <span>🔒</span>
+      <span>Secured by Razorpay. Your payment info is encrypted.</span>
+    </div>
+    
+    <footer class="footer">
+      <p>By upgrading, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+      <p style="margin-top:8px;">Questions? Contact <a href="mailto:support@postal.app">support@postal.app</a></p>
+    </footer>
+  </div>
+  
+  <div class="toast" id="toast"></div>
+  
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    let selectedPlan = 'lifetime';
+    
+    function selectPlan(plan) {
+      selectedPlan = plan;
+      const cards = document.querySelectorAll('.plan-card');
+      cards.forEach(card => card.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+      
+      const amount = plan === 'monthly' ? 99 : 499;
+      document.getElementById('amountDisplay').textContent = amount;
+    }
+    
+    async function initiatePayment() {
+      const email = document.getElementById('emailInput').value;
+      const phone = document.getElementById('phoneInput').value;
+      
+      if (!email) {
+        showToast('Please enter your email');
+        return;
+      }
+
+      showToast('Creating order...');
+
+      try {
+        // Step 1: Create order on server (gets real Razorpay key_id too)
+        const orderRes = await fetch('/api/create-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ plan: selectedPlan })
+        });
+        const orderData = await orderRes.json();
+
+        if (!orderData.success) {
+          showToast('Failed to create order. Try again.');
+          return;
+        }
+
+        const options = {
+          key: orderData.key_id,          // comes from server, not hardcoded
+          amount: orderData.amount,
+          currency: orderData.currency,
+          order_id: orderData.order_id,
+          name: 'Postal Premium',
+          description: selectedPlan === 'monthly' ? 'Monthly Subscription' : 'Lifetime Access',
+          image: '/icons/icon-192.png',
+          handler: async function(response) {
+            // Step 2: Verify payment on server
+            showToast('Verifying payment...');
+            const verifyRes = await fetch('/api/verify-payment', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                plan: selectedPlan,
+                email: email
+              })
+            });
+            const verifyData = await verifyRes.json();
+
+            if (verifyData.success) {
+              window.location.href = `success.html?payment_id=${response.razorpay_payment_id}&plan=${selectedPlan}&license=${verifyData.license_key}`;
+            } else {
+              showToast('Payment verification failed. Contact support.');
+            }
+          },
+          prefill: {
+            email: email,
+            contact: phone
+          },
+          theme: {
+            color: '#8B2635'
+          }
+        };
+
+        const rzp = new Razorpay(options);
+        rzp.open();
+      } catch (err) {
+        console.error('Payment error:', err);
+        showToast('Something went wrong. Please try again.');
+      }
+    }
+    
+    async function activateLicense() {
+      const key = document.getElementById('licenseInput').value;
+      if (!key) {
+        showToast('Please enter your license key');
+        return;
+      }
+      showToast('Verifying license...');
+      try {
+        const res = await fetch('/api/verify-license', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ license_key: key })
+        });
+        const data = await res.json();
+        if (data.valid) {
+          localStorage.setItem('postal_license', key);
+          localStorage.setItem('postal_plan', data.plan);
+          showToast('License activated! Redirecting...');
+          setTimeout(() => { window.location.href = '/'; }, 1500);
+        } else {
+          showToast(data.error || 'Invalid license key');
+        }
+      } catch (err) {
+        showToast('Verification failed. Try again.');
+      }
+    }
+    
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+  </script>
+</body>
+</html>

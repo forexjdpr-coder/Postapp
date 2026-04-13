@@ -1,0 +1,18 @@
+{
+  "name": "postal",
+  "version": "1.0.0",
+  "description": "Private Secure Chat Space",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx vercel dev"
+  },
+  "dependencies": {
+    "razorpay": "^2.9.2",
+    "bcryptjs": "^2.4.3",
+    "node-fetch": "^3.3.2",
+    "@supabase/supabase-js": "^2.39.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
